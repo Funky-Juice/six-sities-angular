@@ -2,42 +2,27 @@
   <section class="property">
     <div class="property__gallery-container container">
       <div class="property__gallery">
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/room.jpg" alt="Photo studio">
-        </div>
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/apartment-01.jpg" alt="Photo studio">
-        </div>
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/apartment-02.jpg" alt="Photo studio">
-        </div>
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/apartment-03.jpg" alt="Photo studio">
-        </div>
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/studio-01.jpg" alt="Photo studio">
-        </div>
-        <div class="property__image-wrapper">
-          <img class="property__image" src="assets/img/apartment-01.jpg" alt="Photo studio">
+        <div *ngFor="let number of [1,2,3,4,5,6]" class="property__image-wrapper">
+          <img class="property__image" src="assets/img/{{ offer.img }}" alt="Photo studio-{{ number }}">
         </div>
       </div>
     </div>
 
     <div class="property__container container">
       <div class="property__wrapper">
-        <div class="property__mark">
+        <div *ngIf="offer.isPremium" class="property__mark">
           <span>Premium</span>
         </div>
 
         <div class="property__name-wrapper">
           <h1 class="property__name">
-            Beautiful &amp; luxurious studio at great location
+            {{ offer.title }}
           </h1>
           <button class="property__bookmark-button button" type="button">
             <svg class="property__bookmark-icon" width="31" height="33">
               <use xlink:href="#icon-bookmark"></use>
             </svg>
-            <span class="visually-hidden">To bookmarks</span>
+            <span class="visually-hidden">{{ offer.isFavorite ? 'In bookmarks' : 'To bookmarks' }}</span>
           </button>
         </div>
 
@@ -46,7 +31,7 @@
             <span style="width: 96%"></span>
             <span class="visually-hidden">Rating</span>
           </div>
-          <span class="property__rating-value rating__value">4.8</span>
+          <span class="property__rating-value rating__value">{{ offer.rating }}</span>
         </div>
 
         <ul class="property__features">
@@ -62,7 +47,7 @@
         </ul>
 
         <div class="property__price">
-          <b class="property__price-value">&euro;120</b>
+          <b class="property__price-value">&euro;{{ offer.price }}</b>
           <span class="property__price-text">&nbsp;night</span>
         </div>
 

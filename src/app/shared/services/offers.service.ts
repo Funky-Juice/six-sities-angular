@@ -7,6 +7,7 @@ export class OffersService {
 
   offers: Offer[] = offers;
 
-  constructor() {
+  getById(id: number) {
+    return this.offers.find((offer) => offer.id === id);
   }
 }
