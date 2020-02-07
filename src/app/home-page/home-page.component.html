@@ -22,7 +22,7 @@
 
       <div class="cities__places-list places__list tabs__content">
         <app-offer
-          *ngFor="let offer of offers"
+          *ngFor="let offer of offersService.offers"
           [offer]="offer"
         ></app-offer>
       </div>

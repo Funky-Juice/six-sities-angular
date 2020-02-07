@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Offer} from '../shared/interfaces';
-import {offers} from '../../assets/mocks/offers';
+import {OffersService} from '../shared/services/offers.service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,9 +8,7 @@ import {offers} from '../../assets/mocks/offers';
 })
 export class HomePageComponent implements OnInit {
 
-  offers: Offer[] = offers;
-
-  constructor() {
+  constructor(private offersService: OffersService) {
   }
 
   ngOnInit() {
