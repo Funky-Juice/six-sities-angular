@@ -21,10 +21,10 @@
       </form>
 
       <div class="cities__places-list places__list tabs__content">
-        <app-offer
+        <app-offer-card
           *ngFor="let offer of offersService.offers"
           [offer]="offer"
-        ></app-offer>
+        ></app-offer-card>
       </div>
     </section>
 

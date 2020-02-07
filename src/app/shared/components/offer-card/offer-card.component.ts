@@ -2,11 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Offer} from '../../interfaces';
 
 @Component({
-  selector: 'app-offer',
-  templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.scss']
+  selector: 'app-offer-card',
+  templateUrl: './offer-card.component.html',
+  styleUrls: ['./offer-card.component.scss']
 })
-export class OfferComponent implements OnInit {
+export class OfferCardComponent implements OnInit {
 
   @Input() offer: Offer;
 
