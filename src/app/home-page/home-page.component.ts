@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from '../shared/interfaces';
+import {offers} from '../../assets/mocks/offers';
 
 @Component({
   selector: 'app-home-page',
@@ -8,12 +9,7 @@ import {Offer} from '../shared/interfaces';
 })
 export class HomePageComponent implements OnInit {
 
-  offers: Offer[] = [
-    {title: `Beautiful &amp; luxurious apartment at great location`},
-    {title: `Wood and stone place`},
-    {title: `Canal View Prinsengracht`},
-    {title: `Nice, cozy, warm big bed apartment`}
-  ];
+  offers: Offer[] = offers;
 
   constructor() {
   }
