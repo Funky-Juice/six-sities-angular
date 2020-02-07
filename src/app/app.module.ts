@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { OfferComponent } from './shared/components/offer/offer.component';
+import { OfferPageComponent } from './offer-page/offer-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    OfferComponent
+    OfferComponent,
+    OfferPageComponent
   ],
   imports: [
     BrowserModule,
