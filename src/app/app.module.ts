@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { OfferCardComponent } from './shared/components/offer-card/offer-card.component';
 import { OfferPageComponent } from './offer-page/offer-page.component';
+import { OfferDetailsComponent } from './shared/components/offer-details/offer-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     OfferCardComponent,
-    OfferPageComponent
+    OfferPageComponent,
+    OfferDetailsComponent
   ],
   imports: [
     BrowserModule,
