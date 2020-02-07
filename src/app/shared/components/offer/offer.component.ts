@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Offer} from '../../interfaces';
 
 @Component({
   selector: 'app-offer',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class OfferComponent implements OnInit {
 
-  @Input() offer: string;
+  @Input() offer: Offer;
 
   constructor() { }
 
