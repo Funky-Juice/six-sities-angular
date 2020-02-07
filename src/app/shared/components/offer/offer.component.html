@@ -1,11 +1,11 @@
 <article class="cities__place-card place-card">
-  <div *ngIf="offer.isPremium" class="place-card__mark">
+  <div *ngIf="offer.is_premium" class="place-card__mark">
     <span>Premium</span>
   </div>
 
   <div class="cities__image-wrapper place-card__image-wrapper">
     <a [routerLink]="['/offer', offer.id]">
-      <img class="place-card__image" src='assets/img/{{ offer.img }}' width="260" height="200"
+      <img class="place-card__image" src='assets/img/{{ offer.preview_image }}' width="260" height="200"
            alt="Place image">
     </a>
   </div>
@@ -20,7 +20,7 @@
         <svg class="place-card__bookmark-icon" width="18" height="19">
           <use href="assets/img/sprite.svg#icon-bookmark"></use>
         </svg>
-        <span class="visually-hidden">{{ offer.isFavorite ? 'In bookmarks' : 'To bookmarks' }}</span>
+        <span class="visually-hidden">{{ offer.is_favorite ? 'In bookmarks' : 'To bookmarks' }}</span>
       </button>
     </div>
 
