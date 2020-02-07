@@ -8,11 +8,36 @@ export enum OfferType {
 
 export interface Offer {
   id: number;
+  city: City;
+  host: Host;
   type: OfferType;
-  rating: number;
-  price: number;
-  img: string;
   title: string;
-  isPremium: boolean;
-  isFavorite: boolean;
+  description: string;
+  goods: string[];
+  images: string[];
+  price: number;
+  rating: number;
+  bedrooms: number;
+  max_adults: number;
+  is_premium: boolean;
+  is_favorite: boolean;
+  preview_image: string;
+}
+
+export interface City {
+  name: string;
+  location: Location;
+}
+
+export interface Location {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+export interface Host {
+  id: number;
+  name: string;
+  is_pro: boolean;
+  avatar_url: string;
 }

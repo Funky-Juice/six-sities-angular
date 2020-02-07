@@ -2,15 +2,15 @@
   <section class="property">
     <div class="property__gallery-container container">
       <div class="property__gallery">
-        <div *ngFor="let number of [1,2,3,4,5,6]" class="property__image-wrapper">
-          <img class="property__image" src="assets/img/{{ offer.img }}" alt="Photo studio-{{ number }}">
+        <div *ngFor="let img of offer.images" class="property__image-wrapper">
+          <img class="property__image" src="assets/img/{{ img }}" alt="Photo studio">
         </div>
       </div>
     </div>
 
     <div class="property__container container">
       <div class="property__wrapper">
-        <div *ngIf="offer.isPremium" class="property__mark">
+        <div *ngIf="offer.is_premium" class="property__mark">
           <span>Premium</span>
         </div>
 
@@ -18,11 +18,12 @@
           <h1 class="property__name">
             {{ offer.title }}
           </h1>
+
           <button class="property__bookmark-button button" type="button">
             <svg class="property__bookmark-icon" width="31" height="33">
               <use xlink:href="#icon-bookmark"></use>
             </svg>
-            <span class="visually-hidden">{{ offer.isFavorite ? 'In bookmarks' : 'To bookmarks' }}</span>
+            <span class="visually-hidden">{{ offer.is_favorite ? 'In bookmarks' : 'To bookmarks' }}</span>
           </button>
         </div>
 
@@ -35,14 +36,11 @@
         </div>
 
         <ul class="property__features">
-          <li class="property__feature property__feature--entire">
-            Entire place
-          </li>
           <li class="property__feature property__feature--bedrooms">
-            3 Bedrooms
+            {{ offer.bedrooms }} Bedrooms
           </li>
           <li class="property__feature property__feature--adults">
-            Max 4 adults
+            Max {{ offer.max_adults }} adults
           </li>
         </ul>
 
@@ -53,37 +51,9 @@
 
         <div class="property__inside">
           <h2 class="property__inside-title">What&apos;s inside</h2>
+
           <ul class="property__inside-list">
-            <li class="property__inside-item">
-              Wi-Fi
-            </li>
-            <li class="property__inside-item">
-              Washing machine
-            </li>
-            <li class="property__inside-item">
-              Towels
-            </li>
-            <li class="property__inside-item">
-              Heating
-            </li>
-            <li class="property__inside-item">
-              Coffee machine
-            </li>
-            <li class="property__inside-item">
-              Baby seat
-            </li>
-            <li class="property__inside-item">
-              Kitchen
-            </li>
-            <li class="property__inside-item">
-              Dishwasher
-            </li>
-            <li class="property__inside-item">
-              Cabel TV
-            </li>
-            <li class="property__inside-item">
-              Fridge
-            </li>
+            <li *ngFor="let good of offer.goods" class="property__inside-item">{{ good }}</li>
           </ul>
         </div>
 
@@ -91,27 +61,20 @@
           <h2 class="property__host-title">Meet the host</h2>
 
           <div class="property__host-user user">
-            <div class="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-              <img class="property__avatar user__avatar" src="assets/img/avatar-angelina.jpg" width="74" height="74"
-                   alt="Host avatar">
+            <div class="property__avatar-wrapper {{ offer.host.is_pro ? 'property__avatar-wrapper--pro' : '' }} user__avatar-wrapper">
+              <img
+                class="property__avatar user__avatar"
+                src="assets/img/{{ offer.host.avatar_url ? offer.host.avatar_url : 'avatar.svg' }}"
+                width="74"
+                height="74"
+                alt="Host avatar"
+              >
             </div>
-            <span class="property__user-name">
-                    Angelina
-                  </span>
-            <span class="property__user-status">
-                    Pro
-                  </span>
+            <span class="property__user-name">{{ offer.host.name }}</span>
           </div>
 
           <div class="property__description">
-            <p class="property__text">
-              A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The
-              building is green and from 18th century.
-            </p>
-            <p class="property__text">
-              An independent House, strategically located between Rembrand Square and National Opera, but where the
-              bustle of the city comes to rest in this alley flowery and colorful.
-            </p>
+            <p class="property__text">{{ offer.description }}</p>
           </div>
         </div>
       </div>
