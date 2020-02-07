@@ -4,7 +4,7 @@
   </div>
 
   <div class="cities__image-wrapper place-card__image-wrapper">
-    <a href="#">
+    <a [routerLink]="['/offer', offer.id]">
       <img class="place-card__image" src='assets/img/{{ offer.img }}' width="260" height="200"
            alt="Place image">
     </a>
@@ -32,7 +32,7 @@
     </div>
 
     <h2 class="place-card__name">
-      <a href="#">{{ offer.title }}</a>
+      <a [routerLink]="['/offer', offer.id]">{{ offer.title }}</a>
     </h2>
     <p class="place-card__type">{{ offer.type }}</p>
   </div>

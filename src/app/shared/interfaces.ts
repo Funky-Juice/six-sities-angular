@@ -7,6 +7,7 @@ export enum OfferType {
 }
 
 export interface Offer {
+  id: number;
   type: OfferType;
   rating: number;
   price: number;
