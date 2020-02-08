@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { OfferCardComponent } from './shared/components/offer-card/offer-card.component';
 import { OfferPageComponent } from './offer-page/offer-page.component';
 import { OfferDetailsComponent } from './shared/components/offer-details/offer-details.component';
+import { MapComponent } from './shared/components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { OfferDetailsComponent } from './shared/components/offer-details/offer-d
     HomePageComponent,
     OfferCardComponent,
     OfferPageComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
