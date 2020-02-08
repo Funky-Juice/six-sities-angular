@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Offer} from '../../interfaces';
+import {OffersService} from '../../services/offers.service';
 
 @Component({
   selector: 'app-cities-list',
@@ -13,11 +14,23 @@ export class CitiesListComponent implements OnInit {
   activeItem = 0;
   filteredCitiesList = [];
 
-  constructor() { }
+  constructor(
+    private offersService: OffersService
+  ) { }
+
+  get activeCity() {
+    return this.filteredCitiesList[this.activeItem];
+  }
 
   ngOnInit() {
     this.filterCities(this.offers);
     this.setRandomActiveItem();
+    this.setOffersServiceData();
+  }
+
+  setOffersServiceData() {
+    this.offersService.setActiveCity(this.activeCity);
+    this.offersService.setActiveOffers(this.activeCity);
   }
 
   filterCities(offers: Offer[]) {
@@ -32,6 +45,7 @@ export class CitiesListComponent implements OnInit {
 
   setActiveItem(index: number) {
     this.activeItem = index;
+    this.setOffersServiceData();
   }
 
 }
