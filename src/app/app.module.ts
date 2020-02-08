@@ -8,6 +8,7 @@ import { OfferCardComponent } from './shared/components/offer-card/offer-card.co
 import { OfferPageComponent } from './offer-page/offer-page.component';
 import { OfferDetailsComponent } from './shared/components/offer-details/offer-details.component';
 import { MapComponent } from './shared/components/map/map.component';
+import { OffersListContainerComponent } from './shared/components/offers-list-container/offers-list-container.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MapComponent } from './shared/components/map/map.component';
     OfferCardComponent,
     OfferPageComponent,
     OfferDetailsComponent,
-    MapComponent
+    MapComponent,
+    OffersListContainerComponent
   ],
   imports: [
     BrowserModule,
