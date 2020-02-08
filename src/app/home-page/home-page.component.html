@@ -1,5 +1,8 @@
 <main class="page__main page__main--index">
-  <app-cities-list class="tabs"></app-cities-list>
+  <app-cities-list
+    class="tabs"
+    [offers]="offersService.offers"
+  ></app-cities-list>
 
   <div class="cities">
     <div class="cities__places-container container">
