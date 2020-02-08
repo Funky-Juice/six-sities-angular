@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnDestroy, OnInit} from '@angular/core';
 import * as Leaflet from 'leaflet';
 import {offers} from '../../../../assets/mocks/offers';
 
@@ -7,7 +7,7 @@ import {offers} from '../../../../assets/mocks/offers';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterContentInit {
+export class MapComponent implements OnInit, AfterContentInit, OnDestroy {
 
   map = null;
   zoom = 12;
@@ -25,6 +25,12 @@ export class MapComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this._mapInit('map-id');
     this._renderPoints(offers);
+  }
+
+  ngOnDestroy() {
+    if (this.map) {
+      this.map.remove();
+    }
   }
 
   get icon() {
