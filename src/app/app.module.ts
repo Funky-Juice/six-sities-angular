@@ -9,6 +9,7 @@ import { OfferPageComponent } from './offer-page/offer-page.component';
 import { OfferDetailsComponent } from './shared/components/offer-details/offer-details.component';
 import { MapComponent } from './shared/components/map/map.component';
 import { OffersListContainerComponent } from './shared/components/offers-list-container/offers-list-container.component';
+import { CitiesListComponent } from './shared/components/cities-list/cities-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OffersListContainerComponent } from './shared/components/offers-list-co
     OfferPageComponent,
     OfferDetailsComponent,
     MapComponent,
-    OffersListContainerComponent
+    OffersListContainerComponent,
+    CitiesListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,13 @@
-<div class="cities">
-  <div class="cities__places-container container">
-    <app-offers-list-container [offers]="offersService.offers"></app-offers-list-container>
+<main class="page__main page__main--index">
+  <app-cities-list class="tabs"></app-cities-list>
 
-    <div class="cities__right-section">
-      <app-map class="cities__map"></app-map>
+  <div class="cities">
+    <div class="cities__places-container container">
+      <app-offers-list-container [offers]="offersService.offers"></app-offers-list-container>
+
+      <div class="cities__right-section">
+        <app-map class="cities__map"></app-map>
+      </div>
     </div>
   </div>
-</div>
+</main>
