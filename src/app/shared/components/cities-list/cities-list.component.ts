@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, KeyValueDiffer, KeyValueDiffers, OnInit} from '@angular/core';
 import {Offer} from '../../interfaces';
 import {OffersService} from '../../services/offers.service';
 
@@ -7,16 +7,20 @@ import {OffersService} from '../../services/offers.service';
   templateUrl: './cities-list.component.html',
   styleUrls: ['./cities-list.component.scss']
 })
-export class CitiesListComponent implements OnInit {
+export class CitiesListComponent implements OnInit, DoCheck {
 
   @Input() offers: Offer[];
 
+  private differ: KeyValueDiffer<string, any>;
   activeItem = 0;
   filteredCitiesList = [];
 
   constructor(
-    private offersService: OffersService
-  ) { }
+    private offersService: OffersService,
+    private differs: KeyValueDiffers
+  ) {
+    this.differ = this.differs.find({}).create();
+  }
 
   get activeCity() {
     return this.filteredCitiesList[this.activeItem];
@@ -26,6 +30,19 @@ export class CitiesListComponent implements OnInit {
     this.filterCities(this.offers);
     this.setRandomActiveItem();
     this.setOffersServiceData();
+  }
+
+  ngDoCheck() {
+    const change = this.differ.diff(this);
+    if (change) {
+      change.forEachChangedItem(item => {
+        console.log('item changed', item);
+
+        if (item.key === 'activeItem') {
+          this.setOffersServiceData();
+        }
+      });
+    }
   }
 
   setOffersServiceData() {
@@ -45,7 +62,6 @@ export class CitiesListComponent implements OnInit {
 
   setActiveItem(index: number) {
     this.activeItem = index;
-    this.setOffersServiceData();
   }
 
 }
