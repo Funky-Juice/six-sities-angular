@@ -1,5 +1,5 @@
 import {Component, DoCheck, Input, KeyValueDiffer, KeyValueDiffers, OnInit} from '@angular/core';
-import {Offer} from '../../interfaces';
+import {City, Offer} from '../../interfaces';
 import {OffersService} from '../../services/offers.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class CitiesListComponent implements OnInit, DoCheck {
 
   private differ: KeyValueDiffer<string, any>;
   activeItem = 0;
+  activeOffers = [];
   filteredCitiesList = [];
 
   constructor(
@@ -44,14 +45,22 @@ export class CitiesListComponent implements OnInit, DoCheck {
   }
 
   setOffersServiceData() {
+    this.filterOffers(this.activeCity);
+
     this.offersService.setActiveCity(this.activeCity);
-    this.offersService.setActiveOffers(this.activeCity);
+    this.offersService.setActiveOffers(this.activeOffers);
   }
 
   filterCities(offers: Offer[]) {
     this.filteredCitiesList = [...new Set(
       offers.map((offer) => JSON.stringify(offer.city))
     )].map((it) => JSON.parse(it));
+  }
+
+  filterOffers(city: City) {
+    if (city) {
+      this.activeOffers = this.offers.filter((offer) => (offer.city.name === city.name));
+    }
   }
 
   setRandomActiveItem() {

@@ -19,9 +19,9 @@ export class OffersService {
     }
   }
 
-  setActiveOffers(city: City) {
-    if (city) {
-      this.activeOffers = this.offers.filter((offer) => (offer.city.name === city.name));
+  setActiveOffers(activeoffers: Offer[]) {
+    if (activeoffers) {
+      this.activeOffers = activeoffers;
     }
   }
 }

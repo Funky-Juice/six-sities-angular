@@ -11,6 +11,7 @@ import { MapComponent } from './shared/components/map/map.component';
 import { OffersListContainerComponent } from './shared/components/offers-list-container/offers-list-container.component';
 import { CitiesListComponent } from './shared/components/cities-list/cities-list.component';
 import { OffersListSortComponent } from './shared/components/offers-list-sort/offers-list-sort.component';
+import { EnumToArrayPipe } from './shared/enum-to-array.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OffersListSortComponent } from './shared/components/offers-list-sort/of
     MapComponent,
     OffersListContainerComponent,
     CitiesListComponent,
-    OffersListSortComponent
+    OffersListSortComponent,
+    EnumToArrayPipe
   ],
   imports: [
     BrowserModule,

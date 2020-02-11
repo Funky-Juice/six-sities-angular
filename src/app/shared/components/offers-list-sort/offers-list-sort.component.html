@@ -1,17 +1,32 @@
 <form class="places__sorting" action="#" method="get">
   <span class="places__sorting-caption">Sort by</span>
 
-  <span class="places__sorting-type" tabindex="0">
-      Popular
-      <svg class="places__sorting-arrow" width="7" height="4">
-        <use href="assets/img/sprite.svg#icon-arrow-select"></use>
-      </svg>
-    </span>
+  <span
+    class="places__sorting-type"
+    style="padding-left: 5px"
+    (click)="isVisible = !isVisible"
+  >
+    {{ sortTypes[activeItem] }}
+    <svg
+      class="places__sorting-arrow"
+      width="7" height="4"
+      [ngStyle]="{'transform': isVisible ? 'rotateX(180deg)' : 'rotateX(0deg'}"
+    >
+      <use href="assets/img/sprite.svg#icon-arrow-select"></use>
+    </svg>
+  </span>
 
-  <ul class="places__options places__options--custom places__options--opened">
-    <li class="places__option places__option--active" tabindex="0">Popular</li>
-    <li class="places__option" tabindex="0">Price: low to high</li>
-    <li class="places__option" tabindex="0">Price: high to low</li>
-    <li class="places__option" tabindex="0">Top rated first</li>
+  <ul
+    class="places__options places__options--custom places__options--opened"
+    [ngStyle]="{'display': isVisible ? 'block' : 'none'}"
+  >
+    <li
+      class="places__option"
+      [ngClass]="{'places__option--active': i === activeItem}"
+      *ngFor="let sort of sortTypes | enumToArray; let i = index"
+      (click)="sortTypeClickHandler(i)"
+    >
+      {{ sort }}
+    </li>
   </ul>
 </form>

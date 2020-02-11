@@ -22,14 +22,12 @@ export class MapComponent implements OnChanges, AfterContentInit, OnDestroy {
   constructor() {}
 
   ngOnChanges(changes) {
-    if (!this.map) {
+    if (!this.map || !changes.activeCity) {
       return;
     }
 
     if (this.activeCity !== changes.activeCity.previousValue) {
       this._focusView(this.activeCity);
-    }
-    if (this.activeOffers !== changes.activeOffers.previousValue) {
       this._renderPoints(this.activeOffers);
     }
   }

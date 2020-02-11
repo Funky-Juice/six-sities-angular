@@ -4,7 +4,10 @@
     {{ activeOffers.length }} {{ placesPlural }} to stay in {{ activeCity.name }}
   </b>
 
-  <app-offers-list-sort></app-offers-list-sort>
+  <app-offers-list-sort
+    [activeCity]="activeCity"
+    [activeOffers]="activeOffers"
+  ></app-offers-list-sort>
 
   <div class="cities__places-list places__list tabs__content">
     <app-offer-card
