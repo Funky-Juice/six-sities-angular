@@ -6,7 +6,7 @@ import {offers} from '../../../assets/mocks/offers';
 export class OffersService {
 
   offers: Offer[] = offers;
-  activeCity = {};
+  activeCity: City = null;
   activeOffers: Offer[] = [];
 
   getById(id: number) {

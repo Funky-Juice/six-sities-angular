@@ -36,8 +36,6 @@ export class CitiesListComponent implements OnInit, DoCheck {
     const change = this.differ.diff(this);
     if (change) {
       change.forEachChangedItem(item => {
-        console.log('item changed', item);
-
         if (item.key === 'activeItem') {
           this.setOffersServiceData();
         }

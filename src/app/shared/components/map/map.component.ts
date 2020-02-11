@@ -1,13 +1,15 @@
-import {AfterContentInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterContentInit, Component, Input, OnChanges, OnDestroy} from '@angular/core';
 import * as Leaflet from 'leaflet';
-import {offers} from '../../../../assets/mocks/offers';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterContentInit, OnDestroy {
+export class MapComponent implements OnChanges, AfterContentInit, OnDestroy {
+
+  @Input() activeCity;
+  @Input() activeOffers;
 
   map = null;
   zoom = 12;
@@ -17,14 +19,25 @@ export class MapComponent implements OnInit, AfterContentInit, OnDestroy {
   markers = Leaflet.layerGroup();
   activeMarker = Leaflet.layerGroup();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnChanges(changes) {
+    if (!this.map) {
+      return;
+    }
+
+    if (this.activeCity !== changes.activeCity.previousValue) {
+      this._focusView(this.activeCity);
+    }
+    if (this.activeOffers !== changes.activeOffers.previousValue) {
+      this._renderPoints(this.activeOffers);
+    }
   }
 
   ngAfterContentInit() {
     this._mapInit('map-id');
-    this._renderPoints(offers);
+    this._focusView(this.activeCity);
+    this._renderPoints(this.activeOffers);
   }
 
   ngOnDestroy() {
@@ -49,6 +62,13 @@ export class MapComponent implements OnInit, AfterContentInit, OnDestroy {
     });
 
     this._renderLayer();
+  }
+
+  _focusView(city) {
+    if (city && city.location) {
+      const {latitude: x, longitude: y} = city.location;
+      this.map.setView([x, y], this.zoom);
+    }
   }
 
   _renderLayer() {

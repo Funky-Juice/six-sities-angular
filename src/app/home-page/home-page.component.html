@@ -9,7 +9,11 @@
       <app-offers-list-container [activeOffers]="offersService.activeOffers"></app-offers-list-container>
 
       <div class="cities__right-section">
-        <app-map class="cities__map"></app-map>
+        <app-map
+          class="cities__map"
+          [activeCity]="offersService.activeCity"
+          [activeOffers]="offersService.activeOffers"
+        ></app-map>
       </div>
     </div>
   </div>
