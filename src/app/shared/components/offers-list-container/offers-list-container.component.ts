@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Offer} from '../../interfaces';
+import {City, Offer} from '../../interfaces';
+import {UtilsService} from '../../services/utils.service';
 
 @Component({
   selector: 'app-offers-list-container',
@@ -9,10 +10,14 @@ import {Offer} from '../../interfaces';
 export class OffersListContainerComponent implements OnInit {
 
   @Input() activeOffers: Offer[];
+  @Input() activeCity: City;
 
-  constructor() { }
+  constructor(private utilsService: UtilsService) { }
 
   ngOnInit() {
   }
 
+  get placesPlural() {
+    return this.utilsService.getPlural(this.activeOffers.length, 'place', 'places', 'places');
+  }
 }

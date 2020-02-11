@@ -1,6 +1,8 @@
 <section class="cities__places places">
   <h2 class="visually-hidden">Places</h2>
-  <b class="places__found">312 places to stay in Amsterdam</b>
+  <b class="places__found">
+    {{ activeOffers.length }} {{ placesPlural }} to stay in {{ activeCity.name }}
+  </b>
 
   <form class="places__sorting" action="#" method="get">
     <span class="places__sorting-caption">Sort by</span>

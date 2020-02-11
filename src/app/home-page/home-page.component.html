@@ -6,7 +6,10 @@
 
   <div class="cities">
     <div class="cities__places-container container">
-      <app-offers-list-container [activeOffers]="offersService.activeOffers"></app-offers-list-container>
+      <app-offers-list-container
+        [activeCity]="offersService.activeCity"
+        [activeOffers]="offersService.activeOffers"
+      ></app-offers-list-container>
 
       <div class="cities__right-section">
         <app-map
