@@ -7,7 +7,7 @@ export class OffersService {
 
   offers: Offer[] = offers;
   activeCity = {};
-  activeOffers = [];
+  activeOffers: Offer[] = [];
 
   getById(id: number) {
     return this.offers.find((offer) => offer.id === id);

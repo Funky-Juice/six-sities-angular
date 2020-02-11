@@ -8,7 +8,7 @@ import {Offer} from '../../interfaces';
 })
 export class OffersListContainerComponent implements OnInit {
 
-  @Input() offers: Offer[];
+  @Input() activeOffers: Offer[];
 
   constructor() { }
 
