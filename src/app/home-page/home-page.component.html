@@ -1,4 +1,4 @@
-<main class="page__main page__main--index">
+<main *ngIf="offersService.offers; else loading" class="page__main page__main--index">
   <app-cities-list
     class="tabs"
     [offers]="offersService.offers"
@@ -21,3 +21,7 @@
     </div>
   </div>
 </main>
+
+<ng-template #loading>
+  <p class="text-center">Загрузка данных...</p>
+</ng-template>
