@@ -556,11 +556,11 @@ img {
   content: "";
   position: absolute;
   width: 12.06vh;
-  min-width: 100px;
-  max-width: 120px;
+  min-width: 150px;
+  max-width: 150px;
   height: 100%;
   bottom: 0;
-  right: -48px;
+  right: -75px;
   background-color: #fff;
   border-right: 6px solid #4481c3;
   -webkit-transform: skew(-6.5deg);

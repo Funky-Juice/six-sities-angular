@@ -4,7 +4,7 @@
       <div class="cities__places-container cities__places-container--empty container">
         <section class="cities__no-places">
           <div class="cities__status-wrapper tabs__content">
-            <b class="cities__status">Загрузка данных...</b>
+            <b class="cities__status">{{ errorMsg ? errorMsg : 'Загрузка данных...' }}</b>
           </div>
         </section>
         <div class="cities__right-section"></div>
