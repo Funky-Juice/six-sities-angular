@@ -14,10 +14,12 @@ import { OffersListSortComponent } from './shared/components/offers-list-sort/of
 import { EnumToArrayPipe } from './shared/enum-to-array.pipe';
 import { SharedModule } from './shared/shared.module';
 import { PageHeaderComponent } from './shared/components/page-header/page-header.component';
+import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PreloaderComponent,
     PageHeaderComponent,
     HomePageComponent,
     OfferCardComponent,
