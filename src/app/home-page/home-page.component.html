@@ -1,27 +1,33 @@
-<main *ngIf="offersService.offers; else loading" class="page__main page__main--index">
-  <app-cities-list
-    class="tabs"
-    [offers]="offersService.offers"
-  ></app-cities-list>
+<div *ngIf="offersService.offers; else loading" class="page page--gray page--main">
+  <app-page-header></app-page-header>
 
-  <div class="cities">
-    <div class="cities__places-container container">
-      <app-offers-list-container
-        [activeCity]="offersService.activeCity"
-        [activeOffers]="offersService.activeOffers"
-      ></app-offers-list-container>
+  <main class="page__main page__main--index">
+    <app-cities-list
+      class="tabs"
+      [offers]="offersService.offers"
+    ></app-cities-list>
 
-      <div class="cities__right-section">
-        <app-map
-          class="cities__map"
+    <div class="cities">
+      <div class="cities__places-container container">
+        <app-offers-list-container
           [activeCity]="offersService.activeCity"
           [activeOffers]="offersService.activeOffers"
-        ></app-map>
+        ></app-offers-list-container>
+
+        <div class="cities__right-section">
+          <app-map
+            class="cities__map"
+            [activeCity]="offersService.activeCity"
+            [activeOffers]="offersService.activeOffers"
+          ></app-map>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
+</div>
 
 <ng-template #loading>
-  <p class="text-center">Загрузка данных...</p>
+  <div class="page page--gray page--main">
+    <p class="text-center">Загрузка данных...</p>
+  </div>
 </ng-template>

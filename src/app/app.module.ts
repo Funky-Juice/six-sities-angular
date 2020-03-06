@@ -12,11 +12,13 @@ import { OffersListContainerComponent } from './shared/components/offers-list-co
 import { CitiesListComponent } from './shared/components/cities-list/cities-list.component';
 import { OffersListSortComponent } from './shared/components/offers-list-sort/offers-list-sort.component';
 import { EnumToArrayPipe } from './shared/enum-to-array.pipe';
-import {SharedModule} from './shared/shared.module';
+import { SharedModule } from './shared/shared.module';
+import { PageHeaderComponent } from './shared/components/page-header/page-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageHeaderComponent,
     HomePageComponent,
     OfferCardComponent,
     OfferPageComponent,
