@@ -19,8 +19,9 @@ export class OfferPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.offer = this.offersService.getById(+params.id);
+      this.offer = this.offersService.getById(+params.id).subscribe();
     });
+    console.log(`777`, this.offer);
   }
 
 }

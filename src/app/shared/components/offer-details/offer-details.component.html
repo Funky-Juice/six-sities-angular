@@ -2,7 +2,7 @@
   <div class="property__gallery-container container">
     <div class="property__gallery">
       <div *ngFor="let img of offer.images" class="property__image-wrapper">
-        <img class="property__image" src="assets/img/{{ img }}" alt="Photo studio">
+        <img class="property__image" src="{{ img }}" alt="Photo studio">
       </div>
     </div>
   </div>
@@ -62,11 +62,11 @@
         <div class="property__host-user user">
           <div class="property__avatar-wrapper {{ offer.host.is_pro ? 'property__avatar-wrapper--pro' : '' }} user__avatar-wrapper">
             <img
-                    class="property__avatar user__avatar"
-                    src="assets/img/{{ offer.host.avatar_url ? offer.host.avatar_url : 'avatar.svg' }}"
-                    width="74"
-                    height="74"
-                    alt="Host avatar"
+              class="property__avatar user__avatar"
+              src="assets/{{ offer.host.avatar_url ? offer.host.avatar_url : 'img/avatar.svg' }}"
+              width="74"
+              height="74"
+              alt="Host avatar"
             >
           </div>
           <span class="property__user-name">{{ offer.host.name }}</span>
